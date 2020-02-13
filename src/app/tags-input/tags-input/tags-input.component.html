@@ -1,0 +1,8 @@
+<div class="bootstrap-tagsinput" (click)="htmlInput.focus();">
+  <span class="tag label label-info" *ngFor="let tag of tagList; let i = index;">
+    {{tag}}
+    <span data-role="remove" (click)="removeTag(i)"></span>
+  </span>
+  <input type="text" (keydown.backspace)="removeLast(htmlInput)" #htmlInput placeholder=""
+  (keydown.enter)="addString(htmlInput)">
+</div>
