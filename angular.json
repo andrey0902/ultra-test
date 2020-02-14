@@ -125,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ultra-test"
+    }
+  },
+  "defaultProject": "ultra-test",
+  "cli": {
+    "analytics": false
+  }
 }

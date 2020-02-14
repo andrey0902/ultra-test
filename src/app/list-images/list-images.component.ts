@@ -22,6 +22,7 @@ export class ListImagesComponent implements OnInit, AfterViewInit, OnDestroy {
   public pagination: IPagination;
   public search: FormControl;
   public load = false;
+  public noData = false;
   private destroy$: Subject<void> = new Subject<void>();
   private searchConfig = searchConfig;
   constructor(private imageService: ImageService,
@@ -71,9 +72,10 @@ export class ListImagesComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private updateProperty(res: IImageApi): void {
+    this.load = false;
+    this.noData = !res.data.length;
     this.images = res.data;
     this.pagination = res.pagination;
-    this.load = false;
     this.cd.detectChanges();
   }
   ngOnDestroy(): void {

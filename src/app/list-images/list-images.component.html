@@ -9,7 +9,13 @@
   </div>
 </section>
 
-<section class="container">
+<section class="container image-section-list">
+  <div class="row justify-content-center" *ngIf="noData">
+    <div class="no-content"  >
+      <h2>No data for showing</h2>
+    </div>
+  </div>
+
   <div class="progress-block" *ngIf="load">
     <div class="progress">
       <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
@@ -18,14 +24,14 @@
     </div>
   </div>
   <div class="row justify-content-between">
-    <div class="ceil" *ngFor="let img of images; let index = index;">
+    <div class="ceil" *ngFor="let img of images;">
       <img class="img-fluid image" [src]="img.imgUrl" [alt]="img.title">
     </div>
   </div>
 </section>
-<section class="container">
+<section class="container" [hidden]="noData">
   <div class="row justify-content-center">
-    <app-pagination [hidden]="!pagination" [pagination]="pagination"></app-pagination>
+    <app-pagination [pagination]="pagination"></app-pagination>
   </div>
 </section>
 

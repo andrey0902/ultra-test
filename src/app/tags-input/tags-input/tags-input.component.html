@@ -3,6 +3,6 @@
     {{tag}}
     <span data-role="remove" (click)="removeTag(i)"></span>
   </span>
-  <input type="text" (keydown.backspace)="removeLast(htmlInput)" #htmlInput placeholder=""
+  <input type="text" class="tag-input" (keydown.backspace)="removeLast(htmlInput)" #htmlInput placeholder=""
   (keydown.enter)="addString(htmlInput)">
 </div>
