@@ -33,7 +33,9 @@ export class ListImagesComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    this.subscribeControlValue();
+    if (this.search && this.paginationComponent) {
+      this.subscribeControlValue();
+    }
   }
 
   private createControl(): void {

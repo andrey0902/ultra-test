@@ -10,7 +10,7 @@ export class HttpImageService {
 
   constructor(private http: HttpClient) { }
 
-  public getImages(params: HttpParams): Observable<any> {
-    return this.http.get<any>(ApiConfig.getSearchImages, { params: params });
+  public getImages(httpParams: HttpParams): Observable<any> {
+    return this.http.get<any>(ApiConfig.getSearchImages, { params: httpParams });
   }
 }
