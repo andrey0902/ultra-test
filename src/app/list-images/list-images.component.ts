@@ -61,7 +61,7 @@ export class ListImagesComponent implements OnInit, AfterViewInit, OnDestroy {
       .subscribe((res) => {
           this.updateProperty(res);
         },
-        (eror) => {
+        (error) => {
           this.load = false;
           this.cd.detectChanges();
         });
