@@ -1,7 +1,8 @@
 import { IImages } from '../models/images-model';
+import { IDataImageApi } from '../models/data-image-api-model';
 
 export class ImagesHttpAdapter {
-  public static getImage(data: any): IImages {
+  public static getImage(data: IDataImageApi): IImages {
     return {
       type: data.type,
       id: data.id,

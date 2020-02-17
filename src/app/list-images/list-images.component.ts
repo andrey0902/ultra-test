@@ -5,10 +5,11 @@ import { FormControl } from '@angular/forms';
 import { startWith, switchMap } from 'rxjs/operators';
 import { IImages } from '../core/models/images-model';
 import { IPagination } from '../core/models/pagination-model';
-import { PaginationComponent } from '../pagination/pagination/pagination.component';
-import { IImageApi } from '../core/models/image-api-model';
+import { PaginationComponent } from '../shared/ui-components/pagination/pagination/pagination.component';
 import { searchConfig } from './search-config';
 import Utils from '../helpers/utils';
+import { IConfigSearch } from '../core/models/config-search-model';
+import { IResponse } from '../core/models/response-model';
 
 @Component({
   selector: 'app-list-images',
@@ -22,9 +23,8 @@ export class ListImagesComponent implements OnInit, AfterViewInit, OnDestroy {
   public pagination: IPagination;
   public search: FormControl;
   public load = false;
-  public noData = false;
   private destroy$: Subject<void> = new Subject<void>();
-  private searchConfig = searchConfig;
+  private searchConfig: IConfigSearch = searchConfig;
   constructor(private imageService: ImageService,
               private cd: ChangeDetectorRef) { }
 
@@ -67,15 +67,14 @@ export class ListImagesComponent implements OnInit, AfterViewInit, OnDestroy {
         });
   }
 
-  private getImages(search: any): Observable<IImageApi> {
+  private getImages(search: IConfigSearch): Observable<IResponse> {
     this.load = true;
     return this.imageService.getImages(search);
 
   }
 
-  private updateProperty(res: IImageApi): void {
+  private updateProperty(res: IResponse): void {
     this.load = false;
-    this.noData = !res.data.length;
     this.images = res.data;
     this.pagination = res.pagination;
     this.cd.detectChanges();

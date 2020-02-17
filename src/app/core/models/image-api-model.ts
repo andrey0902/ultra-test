@@ -1,7 +1,7 @@
-import { IImages } from './images-model';
 import { IPagination } from './pagination-model';
+import { IDataImageApi } from './data-image-api-model';
 
 export interface IImageApi {
-  data: IImages[];
+  data: IDataImageApi[];
   pagination: IPagination;
 }

@@ -5,8 +5,8 @@ import { AppComponent } from './app.component';
 import { ListImagesComponent } from './list-images/list-images.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PaginationModule } from './pagination/pagination.module';
-import { TagsInputModule } from './tags-input/tags-input.module';
+import { PaginationModule } from './shared/ui-components/pagination/pagination.module';
+import { TagsInputModule } from './shared/ui-components/tags-input/tags-input.module';
 @NgModule({
   declarations: [
     AppComponent,
