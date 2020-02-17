@@ -4,6 +4,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HttpImageService } from '../http-services/http-image.service';
 import { Observable, of } from 'rxjs';
 import { IImageApi } from '../models/image-api-model';
+import { searchConfig } from '../../list-images/search-config';
 
 const mockImage: any = {
   type: 'gif',
@@ -51,7 +52,7 @@ describe('ImageService', () => {
   });
 
   it('should be return value image', () => {
-    service.getImages({offset: 0})
+    service.getImages(searchConfig)
       .subscribe((res) => {
         expect(res.pagination.count).toBe(9);
       });
